@@ -164,6 +164,11 @@ Pawn::type() const
 	return PawnFigure;
 }
 
+float Pawn::relativeValue() const
+{
+    return 1.;
+}
+
 QSharedPointer< Figure >
 Pawn::copy() const
 {
@@ -225,6 +230,11 @@ Castle::FigureType
 Castle::type() const
 {
 	return CastleFigure;
+}
+
+float Castle::relativeValue() const
+{
+    return 5.;
 }
 
 QSharedPointer< Figure >
@@ -293,6 +303,11 @@ Knight::type() const
 	return KnightFigure;
 }
 
+float Knight::relativeValue() const
+{
+    return 3.;
+}
+
 QSharedPointer< Figure >
 Knight::copy() const
 {
@@ -356,6 +371,11 @@ Bishop::FigureType
 Bishop::type() const
 {
 	return BishopFigure;
+}
+
+float Bishop::relativeValue() const
+{
+    return  3.;
 }
 
 QSharedPointer< Figure >
@@ -423,6 +443,11 @@ Queen::type() const
 	return QueenFigure;
 }
 
+float Queen::relativeValue() const
+{
+    return 9.;
+}
+
 QSharedPointer< Figure >
 Queen::copy() const
 {
@@ -486,6 +511,11 @@ King::FigureType
 King::type() const
 {
 	return KingFigure;
+}
+
+float King::relativeValue() const
+{
+    return 0.;
 }
 
 QSharedPointer< Figure >

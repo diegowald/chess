@@ -110,6 +110,9 @@ public:
 	//! \return Type of figure.
 	virtual FigureType type() const = 0;
 
+    //! \return float relative value of figure
+    virtual float relativeValue() const = 0;
+
 	//! \return Index in the array.
 	int index() const;
 
@@ -171,6 +174,10 @@ public:
 	//! \return Type of figure.
 	FigureType type() const;
 
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
+
+
 	//! Is pass?
 	bool isPass() const;
 	//! Set pass.
@@ -204,6 +211,9 @@ public:
 	//! \return Type of figure.
 	FigureType type() const;
 
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
+
 	//! Copy.
 	QSharedPointer< Figure > copy() const Q_DECL_OVERRIDE;
 
@@ -229,6 +239,9 @@ public:
 
 	//! \return Type of figure.
 	FigureType type() const;
+
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
 
 	//! Copy.
 	QSharedPointer< Figure > copy() const Q_DECL_OVERRIDE;
@@ -256,6 +269,10 @@ public:
 	//! \return Type of figure.
 	FigureType type() const;
 
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
+
+
 	//! Copy.
 	QSharedPointer< Figure > copy() const Q_DECL_OVERRIDE;
 
@@ -282,6 +299,9 @@ public:
 	//! \return Type of figure.
 	FigureType type() const;
 
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
+
 	//! Copy.
 	QSharedPointer< Figure > copy() const Q_DECL_OVERRIDE;
 
@@ -307,6 +327,10 @@ public:
 
 	//! \return Type of figure.
 	FigureType type() const;
+
+    //! \return float relative value of figure
+    virtual float relativeValue() const;
+
 
 	//! Copy.
 	QSharedPointer< Figure > copy() const Q_DECL_OVERRIDE;
