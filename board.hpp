@@ -108,6 +108,9 @@ private:
 	//! Copy state of the board.
 	void copyState( const Board & other );
 
+    void newGameClassic();
+    void newGameCustom();
+
 private:
 	//! Board.
 	FiguresOnBoard m_board;

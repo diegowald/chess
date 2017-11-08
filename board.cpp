@@ -196,8 +196,27 @@ Board::figure( int index ) const
 		m_transformed.at( index - 32 ).data() );
 }
 
-void
-Board::newGame(int gameType)
+void Board::newGame(int gameType)
+{
+    switch (gameType) {
+    case 0:
+        newGameClassic();
+        break;
+    case 1:
+        newGameCustom();
+        break;
+    default:
+        newGameClassic();
+        break;
+    }
+}
+
+void Board::newGameCustom()
+{
+
+}
+
+void Board::newGameClassic()
 {
 	m_transformed.clear();
 
