@@ -71,7 +71,7 @@ private slots:
 	//! Hovered.
 	void hovered( int x, int y );
 	//! New game.
-	void newGame();
+    void newGame(int gameType);
 	//! Transformation.
 	void transformation( int figure, int c, int x, int y );
 

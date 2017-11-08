@@ -70,8 +70,8 @@ Game::Game( QObject * root, Board & board, Signals & s )
 		this, SLOT( clicked( int, int ) ) );
 	connect( m_boardObject, SIGNAL( hovered( int, int ) ),
 		this, SLOT( hovered( int, int ) ) );
-	connect( m_boardObject, SIGNAL( newGame() ),
-		this, SLOT( newGame() ) );
+    connect( m_boardObject, SIGNAL( newGame(int) ),
+        this, SLOT( newGame(int) ) );
 	connect( m_boardObject, SIGNAL( transformation( int, int, int, int ) ),
 		this, SLOT( transformation( int, int, int, int ) ) );
 }
@@ -894,9 +894,9 @@ Game::hovered( int x, int y )
 }
 
 void
-Game::newGame()
+Game::newGame(int gameType)
 {
-	m_board.newGame();
+    m_board.newGame(gameType);
 	m_board.update();
 
 	m_turnColor = Figure::White;

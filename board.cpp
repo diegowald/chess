@@ -42,7 +42,7 @@ Board::Board()
 	,	m_whiteKing( static_cast< King* > ( m_figures.at( 20 ).data() ) )
 	,	m_blackKing( static_cast< King* > ( m_figures.at( 4 ).data() ) )
 {
-	newGame();
+    newGame(0);
 }
 
 Board::~Board()
@@ -197,7 +197,7 @@ Board::figure( int index ) const
 }
 
 void
-Board::newGame()
+Board::newGame(int gameType)
 {
 	m_transformed.clear();
 
@@ -413,7 +413,7 @@ Board::rowCount( const QModelIndex & parent ) const
 {
 	Q_UNUSED( parent )
 
-	return 8 * 8;
+    return 8 * 8;
 }
 
 QVariant
@@ -421,7 +421,7 @@ Board::data( const QModelIndex & index, int role ) const
 {
 	int row = index.row();
 
-	if( row < 0 || row >= rowCount() )
+    if( row < 0 || row >= rowCount())
 		return QVariant();
 
 	int r = row / 8;

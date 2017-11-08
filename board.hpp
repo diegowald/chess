@@ -95,7 +95,7 @@ public:
 
 public slots:
 	//! New game.
-	void newGame();
+    void newGame(int gameType);
 	//! Update.
 	void update();
 	//! Transformation.

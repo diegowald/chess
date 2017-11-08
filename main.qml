@@ -59,6 +59,13 @@ ApplicationWindow {
 
             text: qsTr( "White" )
         }
+
+        Button {
+            text: qsTr("New game")
+            onClicked: {
+                newGame.open();
+            }
+        }
     }
 
     Dialog {
@@ -76,10 +83,10 @@ ApplicationWindow {
             font.pixelSize: 30
             font.bold: true
             text: ( turn.text === qsTr( "Black" ) ?
-                qsTr( "White" ) : qsTr( "Black" ) ) + qsTr( " won!!!" )
+                       qsTr( "White" ) : qsTr( "Black" ) ) + qsTr( " won!!!" )
         }
 
-        onClosed: { board.newGame() }
+        onClosed: { /*board.newGame()*/ newGame.open() }
     }
 
     Dialog {
@@ -99,7 +106,7 @@ ApplicationWindow {
             text: qsTr( "Draw Game!!!" )
         }
 
-        onClosed: { board.newGame() }
+        onClosed: { /*board.newGame()*/ newGame.open() }
     }
 
     Dialog {
@@ -163,6 +170,54 @@ ApplicationWindow {
         }
 
         onClosed: { board.transformation( figure, color, fx, fy ) }
+    }
+
+    Dialog {
+        id: newGame
+        title: qsTr( "New Game..." )
+        standardButtons: Dialog.Ok
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        x: appWindow.width / 2 - width / 2
+        y: appWindow.height / 2 - height / 2
+
+        property int gameType: 0
+
+        contentItem: Rectangle {
+            ButtonGroup {
+                buttons: column.children
+            }
+
+            Column {
+                id: columnSelectGameType
+
+                Text {
+                    //anchors.centerIn: parent
+                    font.pixelSize: 30
+                    font.bold: true
+                    text: qsTr( "Select Game Type!!!" )
+                }
+
+                RadioButton {
+                    text: qsTr("Classic")
+                    checked: true
+                    onClicked: {
+                        newGame.gameType = 0;
+                    }
+                }
+
+                RadioButton {
+                    text: qsTr("Custom")
+
+                    onClicked: {
+                        newGame.gameType = 1;
+                    }
+                }
+            }
+        }
+
+        onClosed: { board.newGame(newGame.gameType) }
     }
 
     Connections {
