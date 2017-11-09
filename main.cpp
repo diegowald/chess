@@ -54,6 +54,7 @@ int main( int argc, char ** argv )
 	qmlRegisterType< Chess::Signals > ( "ChessSignals", 1, 0, "Chess" );
 
 	engine.rootContext()->setContextProperty( "chessBoard", &board );
+//    engine.rootContext()->setContextProperty( "setupCustomBoard", &customBoard);
 	engine.rootContext()->setContextProperty( "game", &sigs );
 
 	engine.load( QUrl( "qrc:/main.qml" ) );

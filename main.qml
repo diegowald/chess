@@ -245,7 +245,14 @@ ApplicationWindow {
                     text: qsTr( "Select Figures Configuration!!!" )
                 }
 
+                Board {
+                    id: boardSetup
+                    width: Math.max( Math.min( parent.width, parent.height - offset ), minSize )
+                    height: Math.max( Math.min( parent.width, parent.height - offset ), minSize )
+                    anchors.horizontalCenter: rect.horizontalCenter
 
+                    objectName: "boardSetup"
+                }
             }
         }
 
