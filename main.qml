@@ -220,6 +220,39 @@ ApplicationWindow {
         onClosed: { board.newGame(newGame.gameType) }
     }
 
+    Dialog {
+        id: setupBoard
+        title: qsTr( "Setup Game..." )
+        standardButtons: Dialog.Ok
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        x: appWindow.width / 2 - width / 2
+        y: appWindow.height / 2 - height / 2
+
+        contentItem: Rectangle {
+            ButtonGroup {
+                buttons: column.children
+            }
+
+            Column {
+                //                id: columnSelectGameType
+
+                Text {
+                    //anchors.centerIn: parent
+                    font.pixelSize: 30
+                    font.bold: true
+                    text: qsTr( "Select Figures Configuration!!!" )
+                }
+
+
+            }
+        }
+
+        onClosed: { /*board.newGame(newGame.gameType)*/ }
+
+    }
+
     Connections {
         target: game
 
@@ -237,6 +270,10 @@ ApplicationWindow {
             transform.fy = fy
 
             transform.open()
+        }
+
+        onSetupFigures: {
+            setupBoard.open();
         }
     }
 }

@@ -896,6 +896,11 @@ Game::hovered( int x, int y )
 void
 Game::newGame(int gameType)
 {
+    if (gameType == 1)
+    {
+        m_signals.setupFigures(Figure::White);
+    }
+
     m_board.newGame(gameType);
 	m_board.update();
 

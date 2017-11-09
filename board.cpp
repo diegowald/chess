@@ -213,7 +213,151 @@ void Board::newGame(int gameType)
 
 void Board::newGameCustom()
 {
+    m_transformed.clear();
 
+    m_figures.at( 0 )->setX( 0 );
+    m_figures.at( 0 )->setY( 0 );
+    m_figures.at( 1 )->setX( 1 );
+    m_figures.at( 1 )->setY( 0 );
+    m_figures.at( 2 )->setX( 2 );
+    m_figures.at( 2 )->setY( 0 );
+    m_figures.at( 3 )->setX( 3 );
+    m_figures.at( 3 )->setY( 0 );
+    m_figures.at( 4 )->setX( 4 );
+    m_figures.at( 4 )->setY( 0 );
+    m_figures.at( 5 )->setX( 5 );
+    m_figures.at( 5 )->setY( 0 );
+    m_figures.at( 6 )->setX( 6 );
+    m_figures.at( 6 )->setY( 0 );
+    m_figures.at( 7 )->setX( 7 );
+    m_figures.at( 7 )->setY( 0 );
+
+    m_figures.at( 8 )->setX( 0 );
+    m_figures.at( 8 )->setY( 1 );
+    m_figures.at( 9 )->setX( 1 );
+    m_figures.at( 9 )->setY( 1 );
+    m_figures.at( 10 )->setX( 2 );
+    m_figures.at( 10 )->setY( 1 );
+    m_figures.at( 11 )->setX( 3 );
+    m_figures.at( 11 )->setY( 1 );
+    m_figures.at( 12 )->setX( 4 );
+    m_figures.at( 12 )->setY( 1 );
+    m_figures.at( 13 )->setX( 5 );
+    m_figures.at( 13 )->setY( 1 );
+    m_figures.at( 14 )->setX( 6 );
+    m_figures.at( 14 )->setY( 1 );
+    m_figures.at( 15 )->setX( 7 );
+    m_figures.at( 15 )->setY( 1 );
+
+    for( int i = 8; i < 16; ++i )
+        static_cast< Pawn* > ( m_figures.at( i ).data() )->setPass( false );
+
+    m_figures.at( 16 )->setX( 0 );
+    m_figures.at( 16 )->setY( 7 );
+    m_figures.at( 17 )->setX( 1 );
+    m_figures.at( 17 )->setY( 7 );
+    m_figures.at( 18 )->setX( 2 );
+    m_figures.at( 18 )->setY( 7 );
+    m_figures.at( 19 )->setX( 3 );
+    m_figures.at( 19 )->setY( 7 );
+    m_figures.at( 20 )->setX( 4 );
+    m_figures.at( 20 )->setY( 7 );
+    m_figures.at( 21 )->setX( 5 );
+    m_figures.at( 21 )->setY( 7 );
+    m_figures.at( 22 )->setX( 6 );
+    m_figures.at( 22 )->setY( 7 );
+    m_figures.at( 23 )->setX( 7 );
+    m_figures.at( 23 )->setY( 7 );
+
+    m_figures.at( 24 )->setX( 0 );
+    m_figures.at( 24 )->setY( 6 );
+    m_figures.at( 25 )->setX( 1 );
+    m_figures.at( 25 )->setY( 6 );
+    m_figures.at( 26 )->setX( 2 );
+    m_figures.at( 26 )->setY( 6 );
+    m_figures.at( 27 )->setX( 3 );
+    m_figures.at( 27 )->setY( 6 );
+    m_figures.at( 28 )->setX( 4 );
+    m_figures.at( 28 )->setY( 6 );
+    m_figures.at( 29 )->setX( 5 );
+    m_figures.at( 29 )->setY( 6 );
+    m_figures.at( 30 )->setX( 6 );
+    m_figures.at( 30 )->setY( 6 );
+    m_figures.at( 31 )->setX( 7 );
+    m_figures.at( 31 )->setY( 6 );
+
+    for( int i = 24; i < 32; ++i )
+        static_cast< Pawn* > ( m_figures.at( i ).data() )->setPass( false );
+
+    FiguresOnBoard tmp = {
+        {
+            m_figures.at( 0 ).data(),
+            m_figures.at( 1 ).data(),
+            m_figures.at( 2 ).data(),
+            m_figures.at( 3 ).data(),
+            m_figures.at( 4 ).data(),
+            m_figures.at( 5 ).data(),
+            m_figures.at( 6 ).data(),
+            m_figures.at( 7 ).data()
+        },
+
+        {
+            m_figures.at( 8 ).data(),
+            m_figures.at( 9 ).data(),
+            m_figures.at( 10 ).data(),
+            m_figures.at( 11 ).data(),
+            m_figures.at( 12 ).data(),
+            m_figures.at( 13 ).data(),
+            m_figures.at( 14 ).data(),
+            m_figures.at( 15 ).data()
+        },
+
+        { 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0 },
+
+        {
+            m_figures.at( 24 ).data(),
+            m_figures.at( 25 ).data(),
+            m_figures.at( 26 ).data(),
+            m_figures.at( 27 ).data(),
+            m_figures.at( 28 ).data(),
+            m_figures.at( 29 ).data(),
+            m_figures.at( 30 ).data(),
+            m_figures.at( 31 ).data()
+        },
+
+        {
+            m_figures.at( 16 ).data(),
+            m_figures.at( 17 ).data(),
+            m_figures.at( 18 ).data(),
+            m_figures.at( 19 ).data(),
+            m_figures.at( 20 ).data(),
+            m_figures.at( 21 ).data(),
+            m_figures.at( 22 ).data(),
+            m_figures.at( 23 ).data()
+        } };
+
+    std::copy( &tmp[ 0 ][ 0 ], &tmp[ 0 ][ 0 ] +
+        sizeof( FiguresOnBoard ) / sizeof( Figure* ), &m_board[ 0 ][ 0 ] );
+
+    Colors ctmp = {
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None },
+        { None, None, None, None, None, None, None, None }
+    };
+
+    std::copy( &ctmp[ 0 ][ 0 ], &ctmp[ 0 ][ 0 ] +
+        sizeof( Colors ) / sizeof( Color ), &m_colors[ 0 ][ 0 ] );
+
+    std::for_each( m_figures.begin(), m_figures.end(),
+        [] ( auto & figure ) { figure->firstMoveDone( false ); } );
 }
 
 void Board::newGameClassic()

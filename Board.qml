@@ -59,6 +59,7 @@ Rectangle {
         }
     }
 
+
     signal clicked( int x, int y )
     signal hovered( int x, int y )
     signal newGame(int gameType)
