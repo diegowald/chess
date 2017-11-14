@@ -96,7 +96,7 @@ private:
 	//! Check check.
 	bool checkCheck( bool checkmate = false );
 	//! Mark check.
-	bool markCheck( King * king, Figure * figure, bool checkmate = false );
+    bool markCheck(QSharedPointer<King> king, Figure * figure, bool checkmate = false );
 	//! Will be a check after move?
 	bool isCheckAfterMove( int x, int y,
 		Figure * figure, Board & tmpBoard ) const;

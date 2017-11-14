@@ -471,7 +471,7 @@ Game::handleCastling( int x, int y,
 bool
 Game::checkCheck( bool checkmate )
 {
-	King * king = ( m_turnColor == Figure::Black ? m_board.blackKing() :
+    QSharedPointer<King> king = ( m_turnColor == Figure::Black ? m_board.blackKing() :
 		m_board.whiteKing() );
 
 	bool res = false;
@@ -495,7 +495,7 @@ Game::checkCheck( bool checkmate )
 }
 
 bool
-Game::markCheck( King * king, Figure * figure, bool checkmate )
+Game::markCheck( QSharedPointer<King> king, Figure * figure, bool checkmate )
 {
 	// For each possible move.
 	for( int i = 0; i < 5; ++i )
@@ -594,7 +594,7 @@ Game::isCheckAfterMove( int x, int y, Figure * figure, Board & tmpBoard ) const
 
 	handleCastling( x, y, f, tmpBoard );
 
-	King * king = ( f->color() == Figure::White ? tmpBoard.whiteKing() :
+    QSharedPointer<King> king = ( f->color() == Figure::White ? tmpBoard.whiteKing() :
 		tmpBoard.blackKing() );
 
 	// For each figure.

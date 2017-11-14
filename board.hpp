@@ -83,9 +83,9 @@ public:
 	void clearColors();
 
 	//! \return White king.
-	King * whiteKing() const;
+    QSharedPointer<King> whiteKing() const;
 	//! \return Black king.
-	King * blackKing() const;
+    QSharedPointer<King> blackKing() const;
 
 	int rowCount( const QModelIndex & parent = QModelIndex() ) const
 		Q_DECL_OVERRIDE;
@@ -119,9 +119,9 @@ private:
 	//! Transformed figures.
 	QList< QSharedPointer< Figure > > m_transformed;
 	//! White king.
-	King * m_whiteKing;
+    QSharedPointer<King> m_whiteKing;
 	//! Black king.
-	King * m_blackKing;
+    QSharedPointer<King> m_blackKing;
 
 	enum Color {
 		Blue,
@@ -135,6 +135,8 @@ private:
 
 	//! Cells' marks.
 	Colors m_colors;
+
+    int _gameType;
 }; // class Board
 
 } /* namespace Chess */
